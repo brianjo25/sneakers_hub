@@ -4,12 +4,33 @@ Kelas : PBP D
 Tautan menuju aplikasi adaptable : https://sneakershub.adaptable.app
 
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
-
+Untuk mengimplementasikan checklist pada soal secara step-by-step, saya menggunakan bantuan tahapan dari tutorial sebagai bantuan utama saya. Pada tutorial 1 dan 2, sudah dijelaskan dengan sangat baik tentang cara pengerjaan tugas 2 ini. Walau demikian, saya tidak hanya bergantung pada tutorial. Pengetahuan dan ide yang saya miliki juga saya tuangkan kepada pengerjaan ini, seperti contohnya membuat Sneakers Hub, website inventori sepatu.
 
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 
-3. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
+                     HTTPS Request ------urls.py
+                                            |                        
+                                            |
+                                            |
+    Models.py ---- read/write data ------- View.py ----------- HTTP Response
+                                            |                    (HTML)
+                                            |
+                                            |
+                                    Templates html
 
+
+    1. url.py : request dari client akan mencapai django melalui URL. URL ini akan mencocokan permintaan dengan pola URL yang sesua idengan memutuskan nama ciew mana yang akan menangani permintaan tersebut.
+
+    2. views.py : Setelah URl menentukan view yang akan menangani permintaan, view tersebut akan dipanggil. View tersebut berisi logika aplikasi yang dapat melakukan hal seperti memproses data dan lainnya.
+
+    3. models.py : Mendefinisikan struktur data yang akan digunakan dalam aplikasi.
+
+    4. Templates : Digunakan untuk menghasilkan tampilan yang akan ditampilkan kepada users. Biasa berisikan markup HTML serta placeholder untuk data yang diberikan oleh view.
+
+    5. Response : Setelah data masuk ke dalam template, view akan mengirimkan response dalam bentuk HTML ke users. Users menerima response.
+
+
+3. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
 Kita menggunakan virtual environment karena berguna untuk mengisolasi package serta dependencies dari aplikasi sehingga tidak bertabrakan dengan versi lain yang ada pada komputer. Hal ini akan memberikan dependencies yang berbeda-beda antara project satu dengan lainnya yang berjalan pada satu system operasi yang sama. Tanpa menggunakan virtual environment, kita tetap dapat membuat aplikasi web berbasis django, walau demikian hal ini tidak direkomendasikan. Terdapat beberapa masalah yang mungkin dihadapi, seperti :
 
     - konflik dependensi : Jika Anda menginstal paket-paket Python secara global di sistem Anda, proyek-proyek yang berbeda dapat bersaing untuk versi yang sama dari paket-paket ini, yang dapat menyebabkan konflik dan kesulitan dalam mengelola proyek-proyek tersebut.
@@ -49,3 +70,4 @@ Referensi :
 - https://chat.openai.com/share/437eba17-1b53-4a41-aecc-06e5d473c175
 - https://agus-hermanto.com/blog/detail/mvc-vs-mvp-vs-mvvm-apa-perbedaannya-mana-yang-terbaik-diantara-ketiganya-a
 - https://chat.openai.com/share/ab3a8b46-16d9-4810-b827-8b05ba442f9c
+- https://chat.openai.com/share/5cf78bd9-144b-44e8-9603-f31b65568478
