@@ -18,6 +18,9 @@ Untuk mengimplementasikan checklist pada soal secara step-by-step, saya mengguna
                                             |
                                     Templates html
 
+   
+![messageImage_1694571310465](https://github.com/brianjo25/sneakers_hub/assets/126589196/bb471f65-6f04-461c-827a-cbab7a147aba)
+
 
     1. url.py : request dari client akan mencapai django melalui URL. URL ini akan mencocokan permintaan dengan pola URL yang sesua idengan memutuskan nama ciew mana yang akan menangani permintaan tersebut.
 
@@ -30,7 +33,7 @@ Untuk mengimplementasikan checklist pada soal secara step-by-step, saya mengguna
     5. Response : Setelah data masuk ke dalam template, view akan mengirimkan response dalam bentuk HTML ke users. Users menerima response.
 
 
-3. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
+4. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
 Kita menggunakan virtual environment karena berguna untuk mengisolasi package serta dependencies dari aplikasi sehingga tidak bertabrakan dengan versi lain yang ada pada komputer. Hal ini akan memberikan dependencies yang berbeda-beda antara project satu dengan lainnya yang berjalan pada satu system operasi yang sama. Tanpa menggunakan virtual environment, kita tetap dapat membuat aplikasi web berbasis django, walau demikian hal ini tidak direkomendasikan. Terdapat beberapa masalah yang mungkin dihadapi, seperti :
 
     - konflik dependensi : Jika Anda menginstal paket-paket Python secara global di sistem Anda, proyek-proyek yang berbeda dapat bersaing untuk versi yang sama dari paket-paket ini, yang dapat menyebabkan konflik dan kesulitan dalam mengelola proyek-proyek tersebut.
@@ -39,7 +42,7 @@ Kita menggunakan virtual environment karena berguna untuk mengisolasi package se
 
     - Keselamatan proyek: Jika Anda melakukan perubahan pada instalasi Python sistem Anda tanpa sadar, Anda dapat merusak proyek-proyek yang ada. Dengan virtual environment, Anda dapat mengisolasi proyek-proyek tersebut dari instalasi Python sistem.
 
-4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
+5. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
     - MVC : Model View Controller adalah suatu model yang digunakan oleh para software developer yang berisikan komponen model, view, dan controller. 
         - Model merupakan komponen yang berisi logika bisnis dan status data yang terdapat di dalam aplikasi. Model bertugas untuk mendapatkan dan memanipulasi data, berkomunikasi dengan controller, berinteraksi dengan data base, dan terkadang juga refresh tampilan dari aplikasi yang dikembangkan.
     
