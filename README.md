@@ -18,7 +18,6 @@ Untuk mengimplementasikan checklist pada soal secara step-by-step, saya mengguna
                                             |
                                     Templates html
 
-
     1. url.py : request dari client akan mencapai django melalui URL. URL ini akan mencocokan permintaan dengan pola URL yang sesua idengan memutuskan nama ciew mana yang akan menangani permintaan tersebut.
 
     2. views.py : Setelah URl menentukan view yang akan menangani permintaan, view tersebut akan dipanggil. View tersebut berisi logika aplikasi yang dapat melakukan hal seperti memproses data dan lainnya.
@@ -71,3 +70,27 @@ Referensi :
 - https://agus-hermanto.com/blog/detail/mvc-vs-mvp-vs-mvvm-apa-perbedaannya-mana-yang-terbaik-diantara-ketiganya-a
 - https://chat.openai.com/share/ab3a8b46-16d9-4810-b827-8b05ba442f9c
 - https://chat.openai.com/share/5cf78bd9-144b-44e8-9603-f31b65568478
+
+
+Jawaban Tugas 3 :
+Apa perbedaan antara form POST dan form GET dalam Django?
+    POST mengirimkan data formulir ke server dalam badan permintaan HTTP, sedangkan GET mengirim data formulir sebagai parameter yang ditambahkan ke URL. Hal ini membuat POST lebih aman untuk pengiriman data yang bersifat sensitif atau tidak semua orang boleh melihatnya, seperti password. GET lebih cocok untuk permintaan yang tidak sensitif, seperti pencarian atau tampilan data yang tidak mengubah status server.
+
+    POST tidak memiliki batasan ukuran data sedangkan GET memiliki batasan ukuran URL di browser dan server sehingga terbatas dalam jumlah dan ukuran data yang dapat dikirim.    
+
+Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+    Salah atu perbedaan utama antara XML, JSON, dan HTML adalah Struktur XML menggunakan tag kustom yang didefinisikan oleh pengguna untuk menggambarkan data. Struktur JSON menggunakan key-value pair dimana data dapat berupa objek atau array. Struktur HTML memiliki elemen bawaan yang telah didefinisikan, seperti <p> untuk paragraf dan <a> untuk tautan.
+
+Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+    JSON sering digunakan dalam pertukaran data antara aplikasi web modern karena JSON merupakan format pertukaran data yang sangat ringat dan lebih mucah dibaca dan ditulis oleh manusia, sehingga gampang untuk diterjemahkan dan dibuat oleh komputer. Beberapa kelebihan dari JSON juga adalah dapat menyimpan data dalam bentuk array dan menjadikan transfer data menjadi lebih mudah dan lebih cepat dalam parsing data  di sisi server.
+
+Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+    Checklist diatas dilengkapi dengan pertama-tama membuat form input yang nantinya akan menampilkan 3 hal, name, amount, dan description. Setelah itu untuk checklist kedua, ditambahkan 5 function baru untuk HTML, XML, JSON, XML by ID, dan JSON by ID. Untuk checklist ketiga hanya melanjutkan dengan routing URL di masing-masing views dengan penambahan path di urls.py.
+
+Referensi :
+- https://chat.openai.com/share/b53d1de1-e69f-40a1-a560-74e17477e31f
+- https://www.dicoding.com/blog/apa-itu-json/
+- https://chat.openai.com/share/679dede9-e0fb-4cf2-b70f-29697b1e5bf9
+- https://media.neliti.com/media/publications/267827-penerapan-data-json-untuk-mendukung-peng-b1a9128a.pdf
+- Tutorial 3
