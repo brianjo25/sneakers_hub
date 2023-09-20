@@ -102,3 +102,20 @@ Referensi :
 
 Berikut adalah tautan Screenshot terkait penggunaan Postman untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
 
+HTML :
+![messageImage_1695175982125](https://github.com/brianjo25/sneakers_hub/assets/126589196/90224c34-471e-4d0f-8914-cff4f7d45b9f)
+![messageImage_1695176025953](https://github.com/brianjo25/sneakers_hub/assets/126589196/a3748d08-d964-41e7-8943-c596ce203fac)
+![messageImage_1695176004152](https://github.com/brianjo25/sneakers_hub/assets/126589196/d8798382-ffe8-4cca-b1f7-96ea01263d62)
+
+XML :
+![messageImage_1695151054815](https://github.com/brianjo25/sneakers_hub/assets/126589196/022d392d-4bde-4f22-a82a-ddcf1eadb5bb)
+
+JSON :
+![messageImage_1695151100144](https://github.com/brianjo25/sneakers_hub/assets/126589196/f78085e7-4d98-4efd-81e6-d821c706349b)
+
+XML by ID :
+![messageImage_1695151191994](https://github.com/brianjo25/sneakers_hub/assets/126589196/989d2c7f-5f27-4aff-98f0-b00029ff44cb)
+
+JSON by ID :
+![messageImage_1695151220373](https://github.com/brianjo25/sneakers_hub/assets/126589196/eaa09e54-91ba-492f-8f7a-524d526591fa)
+
