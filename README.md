@@ -99,3 +99,6 @@ Referensi :
 - https://chat.openai.com/share/679dede9-e0fb-4cf2-b70f-29697b1e5bf9
 - https://media.neliti.com/media/publications/267827-penerapan-data-json-untuk-mendukung-peng-b1a9128a.pdf
 - Tutorial 3
+
+Berikut adalah tautan Screenshot terkait penggunaan Postman untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
+
