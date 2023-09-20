@@ -82,7 +82,6 @@ Referensi :
 Jawaban Tugas 3 :
 Apa perbedaan antara form POST dan form GET dalam Django?
     POST mengirimkan data formulir ke server dalam badan permintaan HTTP, sedangkan GET mengirim data formulir sebagai parameter yang ditambahkan ke URL. Hal ini membuat POST lebih aman untuk pengiriman data yang bersifat sensitif atau tidak semua orang boleh melihatnya, seperti password. GET lebih cocok untuk permintaan yang tidak sensitif, seperti pencarian atau tampilan data yang tidak mengubah status server.
-
     POST tidak memiliki batasan ukuran data sedangkan GET memiliki batasan ukuran URL di browser dan server sehingga terbatas dalam jumlah dan ukuran data yang dapat dikirim.    
 
 Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
@@ -92,7 +91,6 @@ Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
     JSON sering digunakan dalam pertukaran data antara aplikasi web modern karena JSON merupakan format pertukaran data yang sangat ringat dan lebih mucah dibaca dan ditulis oleh manusia, sehingga gampang untuk diterjemahkan dan dibuat oleh komputer. Beberapa kelebihan dari JSON juga adalah dapat menyimpan data dalam bentuk array dan menjadikan transfer data menjadi lebih mudah dan lebih cepat dalam parsing data  di sisi server.
 
 Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
-
     Checklist diatas dilengkapi dengan pertama-tama membuat form input yang nantinya akan menampilkan 3 hal, name, amount, dan description. Setelah itu untuk checklist kedua, ditambahkan 5 function baru untuk HTML, XML, JSON, XML by ID, dan JSON by ID. Untuk checklist ketiga hanya melanjutkan dengan routing URL di masing-masing views dengan penambahan path di urls.py.
 
 Referensi :
