@@ -104,8 +104,9 @@ Berikut adalah tautan Screenshot terkait penggunaan Postman untuk melihat objek 
 
 HTML :
 ![messageImage_1695175982125](https://github.com/brianjo25/sneakers_hub/assets/126589196/90224c34-471e-4d0f-8914-cff4f7d45b9f)
-![messageImage_1695176025953](https://github.com/brianjo25/sneakers_hub/assets/126589196/a3748d08-d964-41e7-8943-c596ce203fac)
 ![messageImage_1695176004152](https://github.com/brianjo25/sneakers_hub/assets/126589196/d8798382-ffe8-4cca-b1f7-96ea01263d62)
+![messageImage_1695176025953](https://github.com/brianjo25/sneakers_hub/assets/126589196/a3748d08-d964-41e7-8943-c596ce203fac)
+
 
 XML :
 ![messageImage_1695151054815](https://github.com/brianjo25/sneakers_hub/assets/126589196/022d392d-4bde-4f22-a82a-ddcf1eadb5bb)
