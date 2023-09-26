@@ -1,6 +1,8 @@
 Nama : Brian Jonathan
 Kelas : PBP D
 
+Tugas 2
+
 Tautan menuju aplikasi adaptable : https://sneakershub.adaptable.app
 
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
@@ -79,7 +81,7 @@ Referensi :
 - https://chat.openai.com/share/5cf78bd9-144b-44e8-9603-f31b65568478
 
 
-Jawaban Tugas 3 :
+Jawaban Tugas 3 (Implementasi Form dan Data Delivery pada Django) :
 Apa perbedaan antara form POST dan form GET dalam Django?
     POST mengirimkan data formulir ke server dalam badan permintaan HTTP, sedangkan GET mengirim data formulir sebagai parameter yang ditambahkan ke URL. Hal ini membuat POST lebih aman untuk pengiriman data yang bersifat sensitif atau tidak semua orang boleh melihatnya, seperti password. GET lebih cocok untuk permintaan yang tidak sensitif, seperti pencarian atau tampilan data yang tidak mengubah status server.
     POST tidak memiliki batasan ukuran data sedangkan GET memiliki batasan ukuran URL di browser dan server sehingga terbatas dalam jumlah dan ukuran data yang dapat dikirim.    
@@ -100,5 +102,60 @@ Referensi :
 - https://media.neliti.com/media/publications/267827-penerapan-data-json-untuk-mendukung-peng-b1a9128a.pdf
 - Tutorial 3
 
-Berikut adalah tautan Screenshot terkait penggunaan Postman untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
+Berikut adalah tautan Screenshot terkait penggunaan Postman untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID:
+
+
+
+Jawaban Tugas 4 (Implementasi Autentikasi, Session, dan Cookies pada Django):
+
+1. Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
+Django UsercreationForm merupakan formulir bawaan dari framework django yang digunakan untuk memudahkan membuat dan mendaftarkan sebuah user baru. Hal ini akan mengumpulkan username, password, dan konfirmasi password.
+
+Kelebihan :
+- Mudah untuk digunakan : Penggunaan UserCreationForm tidak ribet atau berbelit-belit sehingga mudah untuk digunakan.
+
+- Bisa di custom : Penggunaan UserCreationForm bisa di customize sesuai dengan keperluan, bisa ditambahkan bidang, seperti menambahkan input email dan sebagainya.
+
+- Auto Validation : UserCreationForm dilengkapi dengan auto validation yang akan memastikan password yang diinput sesuai dengan konfirmasi password.
+
+Kekurangan:
+- Tidak support opsi autentikasi alternatif : Jika ingin menambahkan opsi autentikasi seperti misalnya menggunakan google atau facebook, harus menabahkan sendiri. UserCreationForm hanya bisa melakukan pendaftaran secara konvensional, dengan username dan password.
+
+- Preview default yang sangat sederhana : Tampilan yang sederhana ini tidak pasti cocok dengan semua orang. Jika seseorang menginginkan preview/ta,pilan yang lebih menarik atau kompleks, tampilan khusus harus dirancang lagi.
+
+
+2. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
+Autentikasi adalah proses verifikasi identitas pengguna yang berguna untuk melakukan verifikasi ata pengguna dalam memberikan izin kepada sistem untuk melanjutkan, sedangkan otorisasi adalah penentuan hak akses pengguna terkait siapa saja yang bisa mengakses suatu hal. Simplenya, autentikasi memverifikasi usernya sedangkan otorisasi validasi dilakukan kepada akses user terhadap hal-hal yang ada di web/ aplikasi tersebut. 
+
+Hal ini penting untuk mendukung sisi keamanan. Autentikasi memastikan hanya user yang valid/sah yang bisa mengakses ke aplikasi/web, sedangkan ototrisasi membatasi apa saja yang bisa diakses. Selain itu, Autentikasi dan (terkhususnya) otorisasi membantu menjaga privasi data user. Tanpa adanya autentikasi dan otorisasi, pembobolan dan pencurian data besar-besaran bisa dengan sangat mudah terjadi. 
+
+3. Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
+Cookies adalah file berukuran kecil yang diletakkan pada komputer user saat mengunjungi sebuah website. Cookies berguna untuk mengetahui aktivitas yang dilakukan user. 
+
+Django menggunakan cookies dengan cara membuat cookie session yang berisi data user yang mencangkup ID Session unik untuk mengidentifikasi sesi itu. Ketika server menerima request dari browser dengan cookie session, server akan mengambil data sesi yang sesuai berdasarkan ID yang ada. Data sesi ini dapat digunakan untuk mengidentifikasi user, mengambil preferensi dari user, ataupun melakukan tindakan yang berdasarkan dengan data sesi. Server juga bisa mengubah data sesi selama sesi berlangsung, sepertii saat user log in maka server menyimpan informasi identifikasi user dalam sesi tersebut, jika user log out maka informasi itu akan dihapus oleh server. 
+
+4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
+Terdapat beberapa resiko potensial yang tentunya harus diwaspadai, beberapa diantaranya adalah :
+- Resiko Keamanan : Jika tidak digunakan secara benar, soockie dapat menimbulan resiko keamanan. Informasi sensitif pada cookie rentan terhadap akses tidak sah. Cookies juga bisa menjadi vektor untuk sereangan cross-site scripting (XSS) dan cross-site request forgery (CSRF), dimana hal itu bisa terjadi pada browser dengan mengeksploitasi kelemahan kode situs web.
+
+- Masalah Kompabilitas : Beberapa browser memiliki cara yang berbeda dalam menangani cookie, atau bahkan beberapa user memilih untuk menonaktifkannya. Hal ini dapat menyebabkan user experience yang tidak konsisten dan merusak fitur yang mengandalkan cookie. Developer harus mempertimbahkan Cookie Support saat merancang dan membangun aplikasi web dan memastikan adanya mekanisme alternatif jika diperlukan.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+Pertama-tama diawali dengan menambahkan fungsi dan form registrasi dimana terdapat UserCreationForm yang digunakan untuk memudahkan pembuatan formulir pendaftaran user pada web. Tidak terlupa juga untuk membuat register.html untuk pendaftarannya.
+
+Kedua, setelah adanya registrasi, kita buat fungsi login yang berfungsi untuk autentikasi akun yang sudah diregistrasi tadi. Lengkapi juga dengan membuat login.html untuk fitur login ini.
+
+Ketiga, sebuah fungsi log in tentunya juga harus dilengkapi dengan fungsi log out. Fungsi log out dibuat ditambahkan juga pada main.html untuk tombol log outnya.
+
+Keempat, membuat restriction pada halaman awal. Hal ini mewajibkan setiap orang yang akan menggunakan web kita untuk melakukan log in terselbih dahulu.
+
+Kelima, kita akan menggunakan data dari cookies. Hal ini dilakukan dengan menambahkan last_login setelah user log in. Pada web akan dapat dilihat sesi terakhir log in.
+
+Keenam, kita menghubungkan Model Product dengan user. Hal ini berguna untuk menghubungkan product yang dibuat oleh sebuah user sehingga user tersebut yang terotorisasi hanya melihat produk-produk yang terlah dibuatnya sendiri.
+
+Referensi :
+- https://diginews.id/apa-perbedaan-antara-otentikasi-dan-otorisasi/
+- https://glints.com/id/lowongan/cookies-adalah/
+- https://appmaster.io/id/blog/peran-cookie-dalam-pengembangan-web
 
