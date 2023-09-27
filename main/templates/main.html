@@ -11,20 +11,41 @@
 
     <table>
         <tr>
-            <th>Name</th>
-            <th>Amount</th>
+            <th>Shoes</th>
+            <th> </th>
+            <th>Amount of Songs</th>
+            <th> </th>
             <th>Description</th>
-            <th>Date Added</th>
         </tr>
-
+    
         {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
-
+    
         {% for product in products %}
             <tr>
-                <td>{{product.name}}</td>
-                <td>{{product.amount}}</td>
-                <td>{{product.description}}</td>
-                <td>{{product.date_added}}</td>
+                <td>{{ product.name }}</td>
+                <td>
+                    <form method="post" action="{% url 'main:update_product_amount' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="product_id" value="{{ product.id }}">
+                        <button type="submit" name="amount" value="reduce">-</button>
+                    </form>
+                </td>
+                <td style="text-align: center;">{{ product.amount }}</td>
+                <td>
+                    <form method="post" action="{% url 'main:update_product_amount' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="product_id" value="{{ product.id }}">
+                        <button type="submit" name="amount" value="add">+</button>
+                    </form>
+                </td>
+                <td>{{ product.description }}</td>
+                <td>
+                    <form method="post" action="{% url 'main:delete_product' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="product_id" value="{{ product.id }}">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
         {% endfor %}
     </table>

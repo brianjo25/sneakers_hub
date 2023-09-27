@@ -14,16 +14,19 @@ from django.contrib.auth.decorators import login_required
 import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.http import Http404
 
 
 @login_required(login_url='/login')
 def show_main(request):
-    products = Product.objects.all()
+    products = Product.objects.filter(user = request.user)
+    jumlah_item = len(products)
 
     context = {
         'name': 'Brian Jonathan', # Nama kamu
         'class': 'PBP D', # Kelas PBP kamu
         'products': products,
+        'jumlah_item' : jumlah_item,
         'last_login': request.COOKIES['last_login'],
     }
 
@@ -69,6 +72,10 @@ def register(request):
     context = {'form':form}
     return render(request, 'register.html', context)
 
+def product_list(request):
+    jumlah_item = Product.objects.count()
+    return render(request, 'main.html', {'jumlah_item': jumlah_item})
+
 def login_user(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -89,3 +96,35 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('main:login'))
     response.delete_cookie('last_login')
     return response
+
+@login_required(login_url='/login')
+def update_product_amount(request):
+    if request.method == 'POST':
+        product_id = request.POST.get('product_id')
+        amount = request.POST.get('amount')
+
+        try:
+            product = Product.objects.get(pk=product_id)
+            if amount == 'add':
+                product.amount += 1
+            elif amount == 'reduce':
+                if product.amount > 0:
+                    product.amount -= 1
+            product.save()
+        except Product.DoesNotExist:
+            raise Http404
+
+    return redirect('main:show_main')
+
+@login_required(login_url='/login')
+def delete_product(request):
+    if request.method == 'POST':
+        product_id = request.POST.get('product_id')
+
+        try:
+            product = Product.objects.get(pk=product_id, user=request.user)
+            product.delete()
+        except Product.DoesNotExist:
+            pass  # Produk tidak ditemukan atau sudah dihapus
+
+    return redirect('main:show_main')
