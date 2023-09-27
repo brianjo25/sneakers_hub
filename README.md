@@ -165,6 +165,8 @@ Kelima, kita akan menggunakan data dari cookies. Hal ini dilakukan dengan menamb
 
 Keenam, kita menghubungkan Model Product dengan user. Hal ini berguna untuk menghubungkan product yang dibuat oleh sebuah user sehingga user tersebut yang terotorisasi hanya melihat produk-produk yang terlah dibuatnya sendiri.
 
+Terakhir, saya menambahkan fitur-fitur bonus, yakni tombol tambah dan kurang, serta tombol delete untuk menghapus item pada website
+
 Referensi :
 - https://diginews.id/apa-perbedaan-antara-otentikasi-dan-otorisasi/
 - https://glints.com/id/lowongan/cookies-adalah/
