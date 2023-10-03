@@ -167,6 +167,10 @@ Keenam, kita menghubungkan Model Product dengan user. Hal ini berguna untuk meng
 
 Terakhir, saya menambahkan fitur-fitur bonus, yakni tombol tambah dan kurang, serta tombol delete untuk menghapus item pada website
 
+![image](https://github.com/brianjo25/sneakers_hub/assets/126589196/34f70d6b-9644-4f15-b709-7ff5744fcada)
+![image](https://github.com/brianjo25/sneakers_hub/assets/126589196/e1a02387-e963-40e4-b70e-66cea2ec2173)
+
+
 Referensi :
 - https://diginews.id/apa-perbedaan-antara-otentikasi-dan-otorisasi/
 - https://glints.com/id/lowongan/cookies-adalah/
