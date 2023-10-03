@@ -1,69 +1,111 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>SNEAKERS HUB</h1>
 
-    <h5>Name:</h5>
-    <p>Brian Jonathan</p>
+<style>
+    .navbar a{
+        font-family:"Bebas Neue" ;
+        font-size: 35px;
+        background-color: #20232a;
+        color:#61dafb;
+    }
 
-    <h5>Class:</h5>
-    <p>PBP D</p>
+    body {
+      background-image:url("background.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
 
-    <table>
-        <tr>
-            <th>Shoes</th>
-            <th> </th>
-            <th>Amount</th>
-            <th> </th>
-            <th>Description</th>
-        </tr>
-    
-        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
-    
-        {% for product in products %}
-            <tr>
-                <td>{{ product.name }}</td>
-                <td>
-                    <form method="post" action="{% url 'main:update_product_amount' %}">
-                        {% csrf_token %}
-                        <input type="hidden" name="product_id" value="{{ product.id }}">
-                        <button type="submit" name="amount" value="reduce">-</button>
-                    </form>
-                </td>
-                <td style="text-align: center;">{{ product.amount }}</td>
-                <td>
-                    <form method="post" action="{% url 'main:update_product_amount' %}">
-                        {% csrf_token %}
-                        <input type="hidden" name="product_id" value="{{ product.id }}">
-                        <button type="submit" name="amount" value="add">+</button>
-                    </form>
-                </td>
-                <td>{{ product.description }}</td>
-                <td>
-                    <form method="post" action="{% url 'main:delete_product' %}">
-                        {% csrf_token %}
-                        <input type="hidden" name="product_id" value="{{ product.id }}">
-                        <button type="submit">Delete</button>
-                    </form>
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
+    .d-flex{
+      display: flex;
+      justify-content:space-evenly;
+    }
 
-    <br />
+    body{
+      background-color:#282c35 ;
+      color: #ffffff;
+    }
 
-    <a href="{% url 'main:create_product' %}">
-        <button>
-            Add New Product
-        </button>
-    </a>
+    .card{
+      background-color: #1e1e1e;
+      color: #ffffff;
+    }
 
-    <h5>Sesi terakhir login: {{ last_login }}</h5> 
+    .last-row{
+      background-color:#f0f0f0 ;
+      color: #333;
+    }
 
-    <a href="{% url 'main:logout' %}">
-        <button>
-            Logout
-        </button>
-    </a>
+</style>
+
+<nav class="navbar" style="background-color:aliceblue;" >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">SNEAKERS HUB</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">NEWS</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>     
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+</nav>
+
+<h5>Name:</h5>
+<p>Brian Jonathan</p>
+
+<h5>Class:</h5>
+<p>PBP D</p>
+
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-4 mb-3">
+      <div class="card" style="width: 18rem;">
+          <div class="card-body">
+              <h5 class="card-title">{{ product.name }}</h5>
+              <p class="card-text">{{ product.description }}</p>
+              <p class="card-text">Amount: {{ jumlah_item }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                  <div class="d-flex"> <!-- Tombol Edit dan Delete -->
+                      <a href="{% url 'main:edit_product' product.pk %}" class="btn btn-primary" style="margin-right: 50px;background-color: #007BFF;border-color: #007BFF; color: #ffffff;">Edit</a>
+                      <a href="{% url 'main:delete_product' product.pk %}" class="btn btn-danger" style="margin-left: 10px;background-color: #FF0000;border-color: #FF0000;color : #ffffff">Delete</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+    {% endfor %}
+</div>
+
+<br />
+
+<a href="{% url 'main:create_product' %}" class="btn btn-primary" style="background-color: #4CAF50; color: #FFFFFF;">Add New Product</a>
+
+
+<h5>Sesi terakhir login: {{ last_login }}</h5> 
+
+<a href="{% url 'main:logout' %}" class="btn btn-danger" style="background-color: #FF0000; color: #FFFFFF;">Logout</a>
 
 {% endblock content %}
