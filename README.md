@@ -180,7 +180,7 @@ Jawaban Tugas 5 : Desain Web menggunakan HTML, CSS dan Framework CSS
 
 1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
 
-Element Selector digunakan untuk mengatur gaya pada semua elemen dengan jenis tertentu. Berguna ketika ingin mengatur gaya dasar atau gaya global untuk semua elemen dengan jenis yang sama di seluruh web.
+Element Selector digunakan untuk mengatur gaya pada semua elemen dengan jenis tertentu (seperti `<p>` `<h1>`. Berguna ketika ingin mengatur gaya dasar atau gaya global untuk semua elemen dengan jenis yang sama di seluruh web.
 
 ID Selector digunakan untuk mengidentifikasi elemen secara unik dalam halaman HTML dan menerapkan gaya ke elemen tersebut. Digunakan ketika ingin mengatur gaya atau perilaku khusus untuk elemen tunggal dalam halaman dimana ID harus unik dalam satu halaman tesrebut.
 
@@ -226,20 +226,24 @@ Kita sebaiknya menggunakan Tailwind dari pada Bootstrap saat :
 
 Pertama-tama, saya mempelajari terlebih dahulu dokumentasi dan materi yang ada pada tutorial. Hal tersebut sangat membantu saya untuk memahami apa yang saya kerjakan. Setelah itu, saya memulai dengan memasukan Bootstrap CSS dan JS. 
 Kode CSS : 
-    <head>
+```
+<head>
         {% block meta %}
             ...
         {% endblock meta %}
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-
+```
 Kode JS:
+```
 <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+J4jsl5c9zdLKaUk5Ae5f5b1bw6AUn5f5v8FZJoMxm6f5cH1" crossorigin="anonymous"></script>
 </head>
+```
     
 Setelah itu, saya menambahkan juga Navbar atau Navigation bar untuk memperindah tampilan web sekaligus membuatnya bisa lebih multifungsi. Saya menambahkan kode pada edit_product dan membuat file html baru dengan nama edit_product.html. Setelah itu saya menambahkan pada urls.py untuk mengimport fungsi edit_product dan juga menambahkan path url ke urlpatterns. Saya juga menambahkan potongan kode berikut :
 
+```
 ...
 <tr>
     ...
@@ -252,9 +256,11 @@ Setelah itu, saya menambahkan juga Navbar atau Navigation bar untuk memperindah 
     </td>
 </tr>
 ...
+```
 
 Setelah itu, saya membuat fungsi untuk menghapus data produk. Diawali dengan membuat fungsi baru bernama delete_product, menyambungkannya ke urls.py dan menambahkan path url ke dalam urlpatterns. Setelah itu juga ada perubahan di main.html dengan kode betikut :
 
+```
 ...
 <tr>
     ...
@@ -272,6 +278,7 @@ Setelah itu, saya membuat fungsi untuk menghapus data produk. Diawali dengan mem
     </td>
 </tr>
 ...
+```
 
 Setelah ini semua, saya beralih ke card. Setelah membuat card, saya mengubah tampilan-tampilan seperti warna web, warna button, dan banyak lainnya untuk menyesuaikan dan memperindah web.
 
