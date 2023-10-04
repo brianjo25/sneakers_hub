@@ -180,7 +180,7 @@ Jawaban Tugas 5 : Desain Web menggunakan HTML, CSS dan Framework CSS
 
 1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
 
-Element Selector digunakan untuk mengatur gaya pada semua elemen dengan jenis tertentu(seperti '<p>', '<h1>', '<div>'). Berguna ketika ingin mengatur gaya dasar atau gaya global untuk semua elemen dengan jenis yang sama di seluruh web.
+Element Selector digunakan untuk mengatur gaya pada semua elemen dengan jenis tertentu. Berguna ketika ingin mengatur gaya dasar atau gaya global untuk semua elemen dengan jenis yang sama di seluruh web.
 
 ID Selector digunakan untuk mengidentifikasi elemen secara unik dalam halaman HTML dan menerapkan gaya ke elemen tersebut. Digunakan ketika ingin mengatur gaya atau perilaku khusus untuk elemen tunggal dalam halaman dimana ID harus unik dalam satu halaman tesrebut.
 
