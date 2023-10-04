@@ -35,7 +35,7 @@
       background-color:#f0f0f0 ;
       color: #333;
     }
-
+    
 </style>
 
 <nav class="navbar" style="background-color:aliceblue;" >
@@ -85,16 +85,21 @@
           <div class="card-body">
               <h5 class="card-title">{{ product.name }}</h5>
               <p class="card-text">{{ product.description }}</p>
-              <p class="card-text">Amount: {{ jumlah_item }}</p>
+              {% if product.amount %}
+                  <p class="card-text">Amount: {{ product.amount }}</p>
+              {% else %}
+                  <p class="card-text">Amount: Not available</p>
+              {% endif %}
               <div class="d-flex justify-content-between align-items-center">
-                  <div class="d-flex"> <!-- Tombol Edit dan Delete -->
+                  <div class="d-flex">
                       <a href="{% url 'main:edit_product' product.pk %}" class="btn btn-primary" style="margin-right: 50px;background-color: #007BFF;border-color: #007BFF; color: #ffffff;">Edit</a>
                       <a href="{% url 'main:delete_product' product.pk %}" class="btn btn-danger" style="margin-left: 10px;background-color: #FF0000;border-color: #FF0000;color : #ffffff">Delete</a>
                   </div>
               </div>
           </div>
       </div>
-  </div>
+    </div>
+    
   
     {% endfor %}
 </div>

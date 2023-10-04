@@ -1,6 +1,61 @@
 {% extends 'base.html' %} 
 
 {% block content %}
+<style>
+    /* CSS untuk mengubah tampilan form */
+    body {
+        background-color: #f2f2f2; /* Warna latar belakang body */
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+
+    h1 {
+        color: #333; /* Warna teks judul */
+        padding-top: 20px;
+    }
+
+    form {
+        width: 50%;
+        margin: 0 auto;
+        background-color: #fff; /* Warna latar belakang form */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table, th, td {
+        border: 1px solid #ddd; /* Garis batas abu-abu */
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2; /* Warna latar abu-abu muda untuk baris genap */
+    }
+
+    input[type="submit"] {
+        background-color: #007bff; /* Warna latar biru */
+        color: #fff; /* Warna teks putih */
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3; /* Warna latar biru gelap saat hover */
+    }
+</style>
+
 <h1>Add New Product</h1>
 
 <form method="POST">

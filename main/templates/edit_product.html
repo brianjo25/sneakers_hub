@@ -3,6 +3,54 @@
 {% load static %}
 
 {% block content %}
+<style>
+    /* CSS untuk mengubah tampilan form */
+    body {
+        background-color: #282c35; /* Warna latar belakang body */
+        color: #fff; /* Warna teks putih */
+    }
+
+    h1 {
+        color: #fff; /* Warna teks hitam */
+        text-align: center;
+    }
+
+    form {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table, th, td {
+        border: 1px solid #ddd; /* Garis batas abu-abu */
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    tr:nth-child(even) {
+        background-color: #40454f; /* Warna latar abu-abu tua untuk baris genap */
+    }
+
+    input[type="submit"] {
+        background-color: #007bff; /* Warna latar biru */
+        color: #fff; /* Warna teks putih */
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3; /* Warna latar biru gelap saat hover */
+    }
+</style>
 
 <h1>Edit Product</h1>
 
@@ -13,7 +61,8 @@
         <tr>
             <td></td>
             <td>
-                <input type="submit" value="Edit Product"/>
+                <input type="submit" value="Edit Product" style="color: #fff;" />
+
             </td>
         </tr>
     </table>
