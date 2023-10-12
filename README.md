@@ -285,3 +285,165 @@ Setelah ini semua, saya beralih ke card. Setelah membuat card, saya mengubah tam
 Referensi :
 https://www.tutorialrepublic.com/html-reference/html5-tags.php
 https://kotakode.com/pertanyaan/6133/Apa-perbedaan-margin-dan-padding%3F
+
+Tugas 6 : JavaScript dan Asynchronous JavaScript
+
+1. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+Pada proses synchronous, setiap fungsi dijalankan berurutan dam dijalankan satu persatu dilihat dari prioritasnya. Proses asynchronous, tidak perlu menunggu suatu fungsi selsai untuk menjalankan fungsi yang lain, semuanya dijalankan secara bersamaan.
+
+2. Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+Event-driven programming adalah suatu pendekatan di mana program merespon peristiwa atau tindakan yang terjadi. Hal-hal ini seperti interaksi dengan user, juga dari klik mouse, klik tombol keyboard, dan lainnya. Contoh penerapannya di tugas ini adalah saat user memencet button untuk menambahkan produk baru, disini program akan merespon klik dari user pada tombol "Add Product" dan akan memunculkan pop up dimana user bisa menambahkan product.
+
+3. Jelaskan penerapan asynchronous programming pada AJAX.
+Contoh penerapan asynchronous programming pada AJAX adalah dengan menggunakan Fetch API. Fetch API sendiri memberikan dukungan bawaan untuk Promise yang membuatnya cocok untuk Asyncronous Programming. Contoh lainnya adalah menggunakan Promise. Promise dapat digunakan untuk mengelola Asynchronous programming di JavaScript.
+
+
+4. Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+
+Fetch API:
+- Fetch API menggunakan Promise yang membuat API lebih sederhana dan mudah dibaca
+- Fetch API lebih ringan dan memiliki performa yang lebih baik
+- Fetch API memiliki fleksibilitas yang tinggi, dimana Anda memiliki lebih banyak kendali atas permintaan HTTP, termasuk mengatur header, metode, dan parameter.
+
+jQuery:
+- jQuery menyederhanakan fungsi AJAX yang sudah ada di browser
+- jQuery merupakan library High Level, ini berarti Anda dapat mencapai banyak hal dengan kode yang sedikit, tetapi kehilangan sebagaian kontrol yang dimiliki dengan Fetch API.
+- jQuery memiliki kelebihan dalam hal cross-compatibility dan kode yang sangat matang dari polyfillnya.
+
+
+Menurut saya, pilihan ini tergantung dengan kebutuhan dan preferensi. Jika mencari solusi yang ringan dan berkinerja tinggi maka Fetch API merupakan pilihan yang lebih baik. Jika membutuhkan solusi yang memiliki dukungan cross-browser yang lebih baik dan fungsi yang lebih sederhana dan matang, maka jQuery mungkin lebih sesuai.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+Pertama-tama, saya membuat fungsi baru di views.py yang menerima parameter request, dengan kode : 
+
+```
+def get_product_json(request):
+    product_item = Product.objects.all()
+    return HttpResponse(serializers.serialize('json', product_item))
+```
+
+Setelah itu, saya import from django.views.decorators.csrf import csrf_exempt di views.py dan melanjutkannya dengan menambahkan fungsi berikut:
+
+```
+@csrf_exempt
+def add_product_ajax(request):
+if request.method == 'POST':
+    name = request.POST.get("name")
+    price = request.POST.get("price")
+    description = request.POST.get("description")
+    user = request.user
+
+    new_product = Product(name=name, price=price, description=description, user=user)
+    new_product.save()
+
+    return HttpResponse(b"CREATED", status=201)
+
+return HttpResponseNotFound()
+```
+
+Saya melanjutkan dengan mengimpor get_product_json dan add_product_ajax dan menambahkan path url kedua fungsi tersebut ke dalam urlpatterns. Setelah itu, saya membuat block `<script>` dan mengisinya dengan :
+
+```
+<script>
+    async function getProducts() {
+        return fetch("{% url 'main:get_product_json' %}").then((res) => res.json())
+    }
+</script>
+```
+
+Lalu saya juga membuat fungsi baru bernama refreshProducs() dengan kode:
+```
+<script>
+    async function refreshProducts() {
+        document.getElementById("product_table").innerHTML = ""
+        const products = await getProducts()
+        let htmlString = `<tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Date Added</th>
+        </tr>`
+        products.forEach((item) => {
+            htmlString += `\n<tr>
+            <td>${item.fields.name}</td>
+            <td>${item.fields.price}</td>
+            <td>${item.fields.description}</td>
+            <td>${item.fields.date_added}</td>
+        </tr>` 
+        })
+        
+        document.getElementById("product_table").innerHTML = htmlString
+    }
+
+    refreshProducts()
+</script>
+```
+Lalu, saya menambahkan kode di bawah ini untuk mengimplementasikan bootstrap atau modal :
+```
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form" onsubmit="return false;">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="col-form-label">Price:</label>
+                        <input type="number" class="form-control" id="price" name="price"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="col-form-label">Description:</label>
+                        <textarea class="form-control" id="description" name="description"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Product</button>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+dan menambahkan button untuk menampilkan modal dengan kode :
+```
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product by AJAX</button>
+```
+
+Terakhir, saya membuat fungsi baru di block `<script>` dengan kode berikut :
+```
+<script>
+    function addProduct() {
+        fetch("{% url 'main:add_product_ajax' %}", {
+            method: "POST",
+            body: new FormData(document.querySelector('#form'))
+        }).then(refreshProducts)
+
+        document.getElementById("form").reset()
+        return false
+    }
+</script>
+```
+dan menambahkan fungsi onclick pada button Add Product pada modal untuk menjalankan fungsi addProduct() :
+
+```
+<script>
+document.getElementById("button_add").onclick = addProduct
+</script>
+```
+
+
+Referensi :
+https://prosigmaka.com/article/apa-itu-asynchronous-programming/#:~:text=Pada%20proses%20synchronous%20setiap%20fungsi,lainnya%20(non%2Dblocking).
+
+https://muhammadriandiandika.blogspot.com/2017/07/apa-itu-pemogramman-event-driven.html
+
